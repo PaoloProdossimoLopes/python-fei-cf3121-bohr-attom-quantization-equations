@@ -1,27 +1,18 @@
-#  TITLE
-DESCRIPTION ...
-
-## 🧰 Example:
-```swift
-```
-
-## ℹ️  GETTING STARTED
-### PREREQUISITES 
-- Swift 4+
-- Xcode 10+
+# 🐍 Atomo de Bohr 
+Programa para facilitar alguns calculos relacionados a teoria do atomo de bohr da materia de fisica moderna (CF3121)
 
 ### INSTALATION
 1. Open your terminal in location that you want save the project.
 2. Clone the repo in this local.
 ```sh
-git clone https://github.com/PaoloProdossimoLopes/repository-template.git
+git clone https://github.com/PaoloProdossimoLopes/python-fei-cf3121-bohr-attom-quantization-equations.git
 ```
-3. Open the file with extension .xcodeproj inside the folder project.
+3. Open the file with extension .py inside the folder project.
    
 ### RUN
 So that you can run the project follow this steps:
-1. Choose a simulator 
-2. Then click on the **COMMAND + R** keys or press the ▶︎ (icon at the top of the IDE).
+1. Choose the IDE
+2. Then click on play button (▶︎) (icon at the top of the IDE).
 
 
 ## 📃 License:
