@@ -77,9 +77,6 @@ def _operacoes():
         elif escolha == '4':
             _calulo_n_resultante(evento=_emitir, tipo_evento="Emitido/a")
 
-        elif escolha == '5':
-            _converter()
-
         elif escolha == '0':
             print('👋🏽 Finalizando o programa ....')
             break
