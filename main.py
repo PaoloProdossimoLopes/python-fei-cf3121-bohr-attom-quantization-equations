@@ -152,7 +152,34 @@ def calculando_energia_evento(tipo_evento):
         return None
     
 def _conversor():
-    print("need implement")
+    print(
+    """
+    Deseja realizar a conversao da unidade de qual unidade para qual? (insira a abreviação)
+    ::::: UNIDADES MAPEADAS ::::
+    (y)  locto...........~ E-24
+    (z)  zepto...........~ E-21
+    (a)  atto............~ E-18
+    (f)  femto...........~ E-15
+    (p)  pico............~ E-12
+    (n)  nano............~ E-9
+    (mi) micro...........~ E-6
+    (m)  mili............~ E-3
+    (c)  centi...........~ E-2
+    ----------------------------
+    (~)  unidade_padrao..~ E1
+    ----------------------------
+    (k)  kilo............~ E3
+    (M)  mega............~ E6
+    (G)  giga............~ E9
+    (T)  tetra...........~ E12
+    (P)  peta............~ E15
+    (E)  exa.............~ E18
+    (Z)  zeta............~ E21
+    (Y)  iota............~ E24
+    """
+    )
+    unidade_atual = input("Unidade atual: ")
+    unidade_alvo = input("Unidade alvo: ")
 
 if __name__ == '__main__':
     main()
