@@ -151,6 +151,29 @@ def calculando_energia_evento(tipo_evento):
     else:
         return None
     
+unidades = {
+    "y": 1E-24,
+    "z": 1E-21,
+    "a": 1E-18,
+    "f": 1E-15,
+    "p": 1E-12,
+    "n": 1E-9,
+    "mi": 1E-6,
+    "m": 1E-3,
+    "c": 1E-2,
+
+    "~": 1E1,
+
+    "k": 1E3,
+    "M": 1E6,
+    "G": 1E9,
+    "T": 1E12,
+    "P": 1E15,
+    "E": 1E18,
+    "Z": 1E21,
+    "Y": 1E24
+}
+    
 def _conversor():
     print(
     """
@@ -178,8 +201,21 @@ def _conversor():
     (Y)  iota............~ E24
     """
     )
+    valor = float(input("valor: "))
     unidade_atual = input("Unidade atual: ")
     unidade_alvo = input("Unidade alvo: ")
+    
+    if unidade_atual == '~':
+        resultado = valor / unidades[unidade_alvo]
+        print("Resultado {:2e}".format(resultado))
+
+    elif unidades[unidade_atual] > unidades[unidade_alvo] and unidades[unidade_atual] < 1:
+        resultado = (valor * unidades[unidade_atual]) / (unidades[unidade_alvo] / unidades[unidade_atual])
+        print("Resultado {:2e}".format(resultado))
+
+    else:
+        resultado = (valor * unidades[unidade_atual]) / (unidades[unidade_alvo])
+        print("Resultado {:2e}".format(resultado))
 
 if __name__ == '__main__':
     main()
