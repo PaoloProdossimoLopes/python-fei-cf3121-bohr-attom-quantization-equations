@@ -33,6 +33,7 @@ def _opcoes():
     foton ou comprimento de onda do foton absorvido
 4 - (ni ou nf e ffoton ou λfotonEmi) Numero quantico inicial ou final + frequencia do 
     foton ou comprimento de onda do foton emitido
+5 - Converter
 0 - Sair
     """)
 
@@ -76,6 +77,9 @@ def _operacoes():
 
         elif escolha == '4':
             _calulo_n_resultante(evento=_emitir, tipo_evento="Emitido/a")
+
+        elif escolha == '5':
+            _conversor()
 
         elif escolha == '0':
             print('👋🏽 Finalizando o programa ....')
@@ -146,6 +150,9 @@ def calculando_energia_evento(tipo_evento):
         return _calculando_energia_evento_por_frequencia_foton(frequencia_foton)
     else:
         return None
+    
+def _conversor():
+    print("need implement")
 
 if __name__ == '__main__':
     main()
