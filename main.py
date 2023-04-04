@@ -7,6 +7,29 @@ CARGA_ELEMENTAR = 1.6e-19
 PERMISSIVIDADE_VACUO = 8.854e12
 MASSA_ATOMO_HIDROGENIO = 1.66e24
 
+unidades = {
+    "y": 1E-24,
+    "z": 1E-21,
+    "a": 1E-18,
+    "f": 1E-15,
+    "p": 1E-12,
+    "n": 1E-9,
+    "mi": 1E-6,
+    "m": 1E-3,
+    "c": 1E-2,
+
+    "~": 1E1,
+
+    "k": 1E3,
+    "M": 1E6,
+    "G": 1E9,
+    "T": 1E12,
+    "P": 1E15,
+    "E": 1E18,
+    "Z": 1E21,
+    "Y": 1E24
+}
+
 def main():
     _alunos()
     _operacoes()
@@ -150,30 +173,7 @@ def calculando_energia_evento(tipo_evento):
         return _calculando_energia_evento_por_frequencia_foton(frequencia_foton)
     else:
         return None
-    
-unidades = {
-    "y": 1E-24,
-    "z": 1E-21,
-    "a": 1E-18,
-    "f": 1E-15,
-    "p": 1E-12,
-    "n": 1E-9,
-    "mi": 1E-6,
-    "m": 1E-3,
-    "c": 1E-2,
 
-    "~": 1E1,
-
-    "k": 1E3,
-    "M": 1E6,
-    "G": 1E9,
-    "T": 1E12,
-    "P": 1E15,
-    "E": 1E18,
-    "Z": 1E21,
-    "Y": 1E24
-}
-    
 def _conversor():
     print(
     """
@@ -206,7 +206,7 @@ def _conversor():
     unidade_alvo = input("Unidade alvo: ")
     
     if unidade_atual == '~':
-        resultado = valor / unidades[unidade_alvo]
+        resultado = (valor) / unidades[unidade_alvo]
         print("Resultado {:2e}".format(resultado))
 
     elif unidades[unidade_atual] > unidades[unidade_alvo] and unidades[unidade_atual] < 1:
