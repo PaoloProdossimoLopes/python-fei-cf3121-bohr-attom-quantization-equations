@@ -111,17 +111,10 @@ def _calulo_n_resultante(evento, tipo_evento):
     n_inicial = input('Numero quantico inicial (opcional): ')
     n_final = input('Numero quantico final (opcional): ')
 
-    frequencia_foton = input('Frequencia do foton {} (opcional): '.format(tipo_evento))
-    lambda_foton = input('Comprimento de onda {} (opcional): '.format(tipo_evento))
-
-    energia_evento = 0.0
-    if _entradaEhValida(lambda_foton):
-        energia_evento = _calculando_energia_evento_por_λ_foton(lambda_foton)
-    elif _entradaEhValida(frequencia_foton):
-        energia_evento = _calculando_energia_evento_por_frequencia_foton(frequencia_foton)
-    else:
+    energia_evento = calculando_energia_evento(tipo_evento)
+    if energia_evento == None:
         print('❌ Quantidade minima de parametros invalida!')
-        return 
+        return
 
     if _entradaEhValida(n_inicial):
         resultado_n_final = _calculandoNFinal(n_inicial, energia_evento, evento)
@@ -136,12 +129,23 @@ def _calulo_n_resultante(evento, tipo_evento):
     else:
         print('❌ Algo inesperado occorreu tente novamente!')
         return
-    
+
 def _calculando_energia_evento_por_λ_foton(λ):
     return (PLANK_EV * VELOCIDADE_LUZ) / float(λ)
 
 def _calculando_energia_evento_por_frequencia_foton(frequencia):
     return PLANK_EV * float(frequencia)
+
+def calculando_energia_evento(tipo_evento):
+    frequencia_foton = input('Frequencia do foton {} (opcional): '.format(tipo_evento))
+    lambda_foton = input('Comprimento de onda {} (opcional): '.format(tipo_evento))
+
+    if _entradaEhValida(lambda_foton):
+        return _calculando_energia_evento_por_λ_foton(lambda_foton)
+    elif _entradaEhValida(frequencia_foton):
+        return _calculando_energia_evento_por_frequencia_foton(frequencia_foton)
+    else:
+        return None
 
 if __name__ == '__main__':
     main()
