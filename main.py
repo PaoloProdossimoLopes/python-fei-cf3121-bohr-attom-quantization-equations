@@ -1,11 +1,34 @@
 import math
 
-PLANK_JS = 6.63e-34
+PLANK_JS = 6.626e-34
 PLANK_EV = 4.13e-15
 VELOCIDADE_LUZ = 3e8
 CARGA_ELEMENTAR = 1.6e-19
 PERMISSIVIDADE_VACUO = 8.854e12
-MASSA_ATOMO_HIDROGENIO = 1.66e24
+MASSA_ATOMO_HIDROGENIO = 9.109e-31
+
+unidades = {
+    "y": 1E-24,
+    "z": 1E-21,
+    "a": 1E-18,
+    "f": 1E-15,
+    "p": 1E-12,
+    "n": 1E-9,
+    "mi": 1E-6,
+    "m": 1E-3,
+    "c": 1E-2,
+
+    "~": 1E1,
+
+    "k": 1E3,
+    "M": 1E6,
+    "G": 1E9,
+    "T": 1E12,
+    "P": 1E15,
+    "E": 1E18,
+    "Z": 1E21,
+    "Y": 1E24
+}
 
 def main():
     _alunos()
@@ -33,6 +56,7 @@ def _opcoes():
     foton ou comprimento de onda do foton absorvido
 4 - (ni ou nf e ffoton ou λfotonEmi) Numero quantico inicial ou final + frequencia do 
     foton ou comprimento de onda do foton emitido
+5 - Converter
 0 - Sair
     """)
 
@@ -76,6 +100,9 @@ def _operacoes():
 
         elif escolha == '4':
             _calulo_n_resultante(evento=_emitir, tipo_evento="Emitido/a")
+
+        elif escolha == '5':
+            _conversor()
 
         elif escolha == '0':
             print('👋🏽 Finalizando o programa ....')
@@ -146,6 +173,49 @@ def calculando_energia_evento(tipo_evento):
         return _calculando_energia_evento_por_frequencia_foton(frequencia_foton)
     else:
         return None
+
+def _conversor():
+    print(
+    """
+    Deseja realizar a conversao da unidade de qual unidade para qual? (insira a abreviação)
+    ::::: UNIDADES MAPEADAS ::::
+    (y)  locto...........~ E-24
+    (z)  zepto...........~ E-21
+    (a)  atto............~ E-18
+    (f)  femto...........~ E-15
+    (p)  pico............~ E-12
+    (n)  nano............~ E-9
+    (mi) micro...........~ E-6
+    (m)  mili............~ E-3
+    (c)  centi...........~ E-2
+    ----------------------------
+    (~)  unidade_padrao..~ E1
+    ----------------------------
+    (k)  kilo............~ E3
+    (M)  mega............~ E6
+    (G)  giga............~ E9
+    (T)  tetra...........~ E12
+    (P)  peta............~ E15
+    (E)  exa.............~ E18
+    (Z)  zeta............~ E21
+    (Y)  iota............~ E24
+    """
+    )
+    valor = float(input("valor: "))
+    unidade_atual = input("Unidade atual: ")
+    unidade_alvo = input("Unidade alvo: ")
+    
+    if unidade_atual == '~':
+        resultado = (valor) / unidades[unidade_alvo]
+        print("Resultado {:2e}".format(resultado))
+
+    elif unidades[unidade_atual] > unidades[unidade_alvo] and unidades[unidade_atual] < 1:
+        resultado = (valor * unidades[unidade_atual]) / (unidades[unidade_alvo] / unidades[unidade_atual])
+        print("Resultado {:2e}".format(resultado))
+
+    else:
+        resultado = (valor * unidades[unidade_atual]) / (unidades[unidade_alvo])
+        print("Resultado {:2e}".format(resultado))
 
 if __name__ == '__main__':
     main()
